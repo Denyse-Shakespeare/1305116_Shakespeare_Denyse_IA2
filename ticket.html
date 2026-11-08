@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Digital Ticket | Coding Conf 2027</title>
+<link rel="stylesheet" href="css/style.css">
+<script defer src="js/ticket.js"></script>
+</head>
+<body>
+<header class="site-header">
+<img src="assets/logo-mark.svg" alt="Coding Conf Logo" width="32" height="32"> <strong> Coding Conf </strong>
+</header>
+
+<main id="main-content">
+	<section style="text-align: center;">
+		<h1 class="text-gradient">Congrats, <span id="displayAttendeeName">Attendee</span>!</h1>
+		<h1 class="text-gradient">Your ticket is ready.</h1>
+		<p>We've emailed your ticket to <span id="displayAttendeeEmail" style="color: var(--accent-cyan);">your email</span> and will send updates in the run up to the event.</p>
+
+			<!-- Glassmorphism Digital Ticket Asset -->
+				<article class="ticket-wrapper" aria-label="Digital Conference Ticket">
+			<!-- Left Main Ticket Stub -->
+				<div class="ticket-main-details" style="display: flex; flex-direction: column; gap: 1.2rem; text-align: left;">
+				<div style="display: flex; align-items: center; gap: 0.75rem;">
+					<img src="assets/logo-mark.svg" alt="Coding Conf Logo" width="32" height="32">
+					<strong style="font-size: 1.2rem; letter-spacing: 0.5px;">Coding Conf 2027</strong>
+				</div>
+					<p style="font-size: 0.85rem; color: var(--text-secondary);">February 5, 2027 &bull; Papine, Kgn</p>
+
+				<div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
+					<img id="displayAvatarImage" src="assets/default-avatar.png" alt="Attendee Avatar Profile" class="ticket-attendee-avatar">
+			<div>
+					<h2 id="displayTicketHolderName" style="font-size: 1.15rem; margin-bottom: 0.2rem;">Jane Doe</h2>
+			<div style="display: flex; align-items: center; gap: 0.4rem;">
+					<img src="assets/icon-github.svg" alt="GitHub Logo" width="15" height="15">
+				<a id="displayGithubLink" href="#" target="_blank" rel="noopener noreferrer" style="color: var(--accent-cyan); text-decoration: none; font-size: 0.88rem;">@username</a>
+			</div>
+				</div>
+				</div>
+			</div>
+
+		<!-- Right Perforated Serial Stub -->
+			<div class="ticket-serial-tag" id="displayTicketSerialNumber">
+				#01609
+			</div>
+			</article>
+	</section>
+</main>
+
+<footer class="site-footer">
+	<p>&copy; 2027 Coding Conf.</p>
+</footer>
+</body>
+</html>

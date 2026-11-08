@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register | Coding Conf 2027</title>
+<link rel="stylesheet" href="css/style.css">
+<script defer src="js/validation.js"></script>
+
+</head>
+<body>
+	<header class="site-header">
+		<img src="assets/logo-mark.svg" alt="Coding Conf Logo" width="32" height="32"> <strong> Coding Conf </strong>
+	<nav class="navigation-bar">
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="login.html" aria-current="page">Register</a></li>
+		</ul>
+	</nav>
+</header>
+
+<main id="main-content">
+		<section class="glass-panel">
+			<h1 class="text-gradient" style="text-align: center;">Your Journey to Coding Conf 2027 Starts Here!</h1>
+			<p style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">Secure your spot at next year's biggest coding conference.</p>
+
+		<form id="conferenceRegisterForm" class="registration-form" novalidate>
+
+		<!-- Full Name -->
+			<div class="form-group" id="fullNameContainer">
+				<label for="attendeeFullNameInput">Full Name</label>
+					<input type="text" id="attendeeFullNameInput" name="fullName" placeholder="e.g. Jane Doe" required>
+					<span class="error-message" id="fullNameError">Please provide your full name.</span>
+			</div>
+
+		<!-- Email Address -->
+			<div class="form-group" id="emailContainer">
+				<label for="attendeeEmailInput">Email Address</label>
+					<input type="email" id="attendeeEmailInput" name="email" placeholder="example@domain.com" required>
+					<span class="error-message" id="emailError">Enter a valid email address (user@domain.com).</span>
+			</div>
+
+		<!-- GitHub Handle -->
+			<div class="form-group" id="githubContainer">
+				<label for="githubHandleInput">GitHub Username</label>
+					<input type="text" id="githubHandleInput" name="githubHandle" placeholder="@yourusername" required>
+					<span class="error-message" id="githubError">GitHub handle must start with '@'.</span>
+			</div>
+
+		<!-- Interactive Drag-and-Drop Avatar Upload -->
+			<div class="form-group" id="avatarContainer">
+				<label>Upload Profile Picture (JPEG/PNG, Max 500KB)</label>
+
+			<div class="drag-drop-zone" id="dragDropDropZone">
+		<!-- State 1: Default Upload Prompt -->
+			<div id="uploadPromptState" style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem; width: 100%;">
+				<img src="assets/icon-upload.svg" alt="Upload Icon" width="32" height="32">
+				<p class="drag-drop-text" id="dragDropLabelText">Drag & drop your profile picture here, or <span>browse files</span></p>
+			</div>
+
+		<!-- State 2: Selected File Preview & Remove Option (Hidden by default) -->
+			<div id="fileSelectedState" style="display: none; align-items: center; justify-content: space-between; width: 100%; gap: 1rem;">
+				<div style="display: flex; align-items: center; gap: 0.75rem; overflow: hidden;">
+					<img id="filePreviewThumb" src="" alt="Avatar Preview" style="width: 42px; height: 42px; border-radius: 8px; object-fit: cover; border: 1px solid var(--accent-cyan);">
+					<span id="selectedFileName" style="font-size: 0.88rem; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 220px;"></span>
+				</div>
+				<button type="button" id="removeFileBtn" style="background: rgba(255, 82, 82, 0.15); color: var(--text-error); border: 1px solid rgba(255, 82, 82, 0.3); padding: 0.4rem 0.8rem; border-radius: 6px; font-						size: 0.8rem; cursor: pointer; transition: var(--transition-smooth);">Remove</button>
+			</div>
+
+		<!-- Hidden native file input -->
+			<input type="file" id="avatarFileInput" name="avatarFile" accept="image/png, image/jpeg" style="display: none;">
+			</div>
+			<span class="error-message" id="avatarError">Please upload a valid JPEG/PNG image under 500KB.</span>
+			</div>
+
+			<button type="submit" class="action-button" style="width: 100%; margin-top: 1rem;">Generate My Ticket</button>
+		</form>
+	</section>
+</main>
+
+<footer class="site-footer">
+	<p>&copy; 2027 Coding Conf. All Rights Reserved.</p>
+</footer>
+</body>
+</html>

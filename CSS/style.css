@@ -1,0 +1,443 @@
+/* =============================================
+   Coding Conf 2026 - Design & Layout
+   ============================================= */
+
+:root {
+  /* Color Palette */
+  --bg-dark-cosmic: #0b0d1b;
+  --bg-card-glass: rgba(22, 27, 46, 0.65);
+  --border-glass: rgba(255, 255, 255, 0.15);
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-error: #ff5252;
+  
+  --accent-cyan: #00f2fe;
+  --accent-cyan-glow: rgba(0, 242, 254, 0.35);
+  --accent-amber: #ffb300;
+  
+  /* Fluid Typography */
+  --font-heading-xl: clamp(2.2rem, 5vw, 3.8rem);
+  --font-heading-lg: clamp(1.6rem, 3.5vw, 2.4rem);
+  --font-body: clamp(0.95rem, 1.5vw, 1.1rem);
+  --font-small: 0.85rem;
+
+  /* Layout & Spacing */
+  --container-max-width: 1100px;
+  --border-radius-card: 18px;
+  --border-radius-btn: 10px;
+  --transition-smooth: all 0.3s ease-in-out;
+}
+
+/* Base Reset & Typography */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-dark-cosmic);
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(0, 242, 254, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(255, 179, 0, 0.08) 0%, transparent 40%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Accessibility Focus States */
+:is(a, button, input):focus-visible {
+  outline: 3px solid var(--accent-amber);
+  outline-offset: 4px;
+}
+
+/* Header & Navigation */
+.site-header {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.brand-logo span {
+  color: var(--accent-cyan);
+}
+
+.navigation-bar ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.navigation-bar a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-smooth);
+}
+
+.navigation-bar a:hover {
+  color: var(--accent-cyan);
+}
+
+/* Main Container Layout */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Glassmorphism Card Style */
+.glass-panel {
+  background: var(--bg-card-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--border-radius-card);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  padding: 2.5rem;
+}
+
+/* Headings & Text Formatting */
+h1 {
+  font-size: var(--font-heading-xl);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Metadata Badges (Landing Page) */
+.event-metadata-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1.5rem 0 2.5rem 0;
+  list-style: none;
+}
+
+.metadata-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  border: 1px solid var(--border-glass);
+  font-size: var(--font-body);
+}
+
+/* Action Buttons */
+.action-button {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--accent-cyan), #00a8ff);
+  color: #040914;
+  font-weight: 700;
+  padding: 0.9rem 2rem;
+  border-radius: var(--border-radius-btn);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.action-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px var(--accent-cyan-glow);
+}
+
+/* Forms & Modern Selectors */
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* :has() Selector: Highlights group container when input is focused */
+.form-group:has(input:focus) label {
+  color: var(--accent-cyan);
+}
+
+label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+input:not([type="file"]) {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-glass);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: var(--transition-smooth);
+}
+
+/* Input Hover State with Hand Cursor */
+input:not([type="file"]):hover {
+  border-color: var(--accent-cyan);
+  background: rgba(0, 242, 254, 0.03);
+  box-shadow: 0 0 10px rgba(0, 242, 254, 0.1);
+  cursor: pointer;
+}
+
+/* Error States */
+.error-message {
+  color: var(--text-error);
+  font-size: var(--font-small);
+  display: none;
+}
+
+.form-group.has-error .error-message {
+  display: block;
+}
+
+.form-group.has-error input {
+  border-color: var(--text-error);
+}
+
+/* Ticket Styling */
+.ticket-wrapper {
+  max-width: 680px;
+  margin: 2.5rem auto;
+  position: relative;
+  background: linear-gradient(135deg, #121629 0%, #0b0d1b 100%);
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  border-radius: 20px;
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 130px;
+  gap: 2rem;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 242, 254, 0.1);
+  overflow: hidden;
+}
+
+.ticket-wrapper::before,
+.ticket-wrapper::after {
+  content: '';
+  position: absolute;
+  right: 145px;
+  width: 24px;
+  height: 24px;
+  background-color: var(--bg-dark-cosmic);
+  border-radius: 50%;
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  z-index: 2;
+}
+
+.ticket-wrapper::before {
+  top: -12px;
+}
+
+.ticket-wrapper::after {
+  bottom: -12px;
+}
+
+.ticket-attendee-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid var(--accent-cyan);
+}
+
+.ticket-serial-tag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--accent-cyan);
+  border-left: 2px dashed rgba(0, 242, 254, 0.3);
+  padding-left: 1.5rem;
+  background: rgba(0, 242, 254, 0.02);
+}
+
+/* Drag & Drop Zone */
+.drag-drop-zone {
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 1.75rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.drag-drop-zone:hover, 
+.drag-drop-zone.dragover {
+  border-color: var(--accent-cyan);
+  background: rgba(0, 242, 254, 0.05);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+}
+
+.drag-drop-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.drag-drop-text span {
+  color: var(--accent-cyan);
+  text-decoration: underline;
+}
+
+#removeFileBtn:hover {
+  background: rgba(255, 82, 82, 0.3);
+}
+
+/* Registration Form Specific State Modifications */
+body:has(#conferenceRegisterForm) {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: hidden;
+}
+
+body:has(#conferenceRegisterForm) .site-header {
+  padding: 1rem 1.5rem;
+}
+
+body:has(#conferenceRegisterForm) main {
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body:has(#conferenceRegisterForm) .glass-panel {
+  width: 100%;
+  max-width: 560px;
+  padding: 1.25rem 1.75rem;
+  margin: 0 auto;
+}
+
+body:has(#conferenceRegisterForm) h1 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem) !important;
+  margin-bottom: 0.3rem !important;
+}
+
+body:has(#conferenceRegisterForm) p {
+  margin-bottom: 1rem !important;
+  font-size: 0.9rem;
+}
+
+body:has(#conferenceRegisterForm) .registration-form {
+  gap: 0.85rem !important;
+}
+
+body:has(#conferenceRegisterForm) .drag-drop-zone {
+  padding: 0.85rem 1rem;
+}
+
+body:has(#conferenceRegisterForm) .site-footer {
+  padding: 1rem;
+}
+
+/* Footer */
+.site-footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+  font-size: var(--font-small);
+  margin-top: auto;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .ticket-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .ticket-serial-tag {
+    writing-mode: horizontal-tb;
+    border-left: none;
+    border-top: 2px dashed var(--border-glass);
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .site-header {
+    padding: 1rem;
+  }
+
+  main {
+    padding: 1rem 0.5rem;
+  }
+
+  .glass-panel {
+    padding: 1.25rem 1rem;
+    border-radius: 12px;
+  }
+
+  h1.text-gradient {
+    font-size: 1.6rem !important;
+    line-height: 1.2;
+  }
+
+  .registration-form {
+    width: 100%;
+    gap: 1rem;
+  }
+
+  input:not([type="file"]) {
+    font-size: 16px; /* Prevents auto-zoom on mobile iOS devices */
+    padding: 0.75rem;
+  }
+
+  .drag-drop-zone {
+    padding: 1rem 0.5rem;
+  }
+}
